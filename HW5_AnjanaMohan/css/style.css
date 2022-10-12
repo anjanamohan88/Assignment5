@@ -1,0 +1,253 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 2px;
+  text-align: center;
+  
+  background-color: beige;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #a52a2a;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+/*color*/
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color:rgb(255, 99, 71);
+  /*background-color: #f1f1f1;*/
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: beige;
+  padding: 20px;
+  font-family: Arial;
+  font-size:16px !important
+}
+
+/*inline block*/
+
+.as {
+  display: inline; /* the default for span */ 	
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;  
+  background-color: yellow; 
+}
+
+.bs {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;    
+  background-color: yellow; 
+}
+
+.cs {
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;    
+  background-color: yellow; 
+}
+
+/* Fake image, just for this example */
+.imagestyle {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.imagestyle1{
+	padding:20px;
+}
+/*box design*/
+
+.borderdesign {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid red;
+  padding: 50px;
+  margin: 20px;
+}
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+
+ 
+
+}
+/*overflow property*/
+.ex1 {
+  background-color: lightblue;
+  width: 1100px;
+  height: 110px;
+  overflow: scroll;
+}
+
+.ex2 {
+  background-color: lightblue;
+  width: 1000px;
+  height: 110px;
+  overflow: hidden;
+}
+
+.ex3 {
+  background-color: lightblue;
+  width: 1000px;
+  height: 110px;
+  overflow: auto;
+}
+.ex4 {
+  background-color: lightblue;
+  width: 1000px;
+  height: 110px;
+  overflow: clip;
+}
+.ex5 {
+  background-color: lightblue;
+  width: 1000px;
+  height: 110px;
+  overflow: visible;
+}
+
+/*font precedence */
+div {
+      font-family: Arial;
+      font-size: 16px !important;
+  }
+  .specialText {
+      font-size: 18px;
+  }
+  
+  /*button */
+  
+  .button {
+  background-color:red;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+.button1:hover {
+      background-color:#002ead;
+      transition: 0.7s;
+  }
+
+.button1 {border-radius: 12px;}
+
+/* overriding property */
+#testid {
+        color: blue;
+        font-weight: bold;
+      }
+
+.example {
+        color: red;
+        font-weight: normal;
+      }
+.tdcol{
+    color:darkred;
+    font-weight:bolder;
+    font-size:50px;
+   }
+.tablecaption{
+    text-align:center;
+    font-family:'Comic Sans MS';
+    font-weight:bolder;
+
+}
+.errormsg{
+    font-family:'Comic Sans MS';
+    color:red;
+    font-size:1px;
+}

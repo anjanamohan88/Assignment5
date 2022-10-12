@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Mackinac Trip</title>
+    <link rel="icon" type="image/x-icon" href="images/trip.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    </style>
+    <script>
+
+        function getData(form) {
+            var formData = new FormData(form);
+
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ": " + pair[1]);
+            }
+
+            console.log(Object.fromEntries(formData));
+        }
+
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            getData(event.target);
+        });
+
+        var tabBody, row, cell;
+        function updateCommentsTable() {
+            //alert("hi" + document.forms["myForm"]["comments"].value);
+            tabBody = document.getElementById("editable");
+            row = document.createElement("tr");
+            cell = document.createElement("td");
+            cell.innerHTML = document.forms["myForm"]["comments"].value + '-' + document.forms["myForm"]["firstName"].value + ' ' + document.forms["myForm"]["lastName"].value;
+            row.appendChild(cell);
+            if (tabBody.childNodes.length == 10)
+                tabBody.removeChild(tabBody.childNodes[0])
+            tabBody.appendChild(row);
+        }
+
+        function validateForm() {
+
+            let fname = document.querySelector('#firstName').value;
+            let lname = document.querySelector('#lastName').value;
+            let comments = document.querySelector('#comments').value;
+            firstNameErr = document.getElementById('fname-err');
+            lastNameErr = document.getElementById('lname-err');
+            let x = document.forms["myForm"]["firstName"].value;
+            let y = document.forms["myForm"]["lastName"].value;
+            let z = document.forms["myForm"]["comments"].value;
+            var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            var frname = document.getElementById('firstName').value;
+            var lnname = document.getElementById('lastName').value;
+
+            if (!regName.test(frname)) {
+                firstNameErr.innerHTML = "FirstName is invalid";
+            }
+
+            // else if (frname == "") {
+            //alert("FirstName must be filled out");
+
+            // firstNameErr.innerHTML = "FirstName is Required";
+            //return false;
+            //  }
+            if (!regName.test(lnname)) {
+                lastNameErr.innerHTML = "FirstName is invalid";
+            }
+
+            //if (lnname == "") {
+            //   //alert("FirstName must be filled out");
+
+            // lastNameErr.innerHTML = "LastName is Required";
+            //return false;
+            // }
+
+            if (z == "") {
+                //alert("FirstNemust be filled out");
+                commentserr = document.getElementById('comments-err');
+                commentserr.innerHTML = "Comment is Required";
+                return false;
+            }
+            updateCommentsTable();
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <h2>Please put your comments/feedbacks here !!!..</h2>
+        <p>
+        </p>
+        &nbsp;
+        <div>
+            <form method="post" name="myForm" id="myForm" onsubmit="return validateForm(); updateCommentsTable();">
+
+                FirstName:<input id="firstName" name="firstName" placeholder="firstname">
+                <div id="fname-err" class="errormsg">
+
+                </div>
+                <br />
+                LastName:<input id="lastName" name="lastName" placeholder="lastname">
+                <div id="lname-err" class="errormsg">
+
+
+                </div>
+                <br />
+                Enter Your Comments here:<textarea id="comments" name="comments" cols="50" rows="5" placeholder="commentsection"></textarea>
+                <div id="comments-err" class="errormsg">
+
+                </div>
+                <br />
+                <input type="submit" />
+            </form>
+
+
+        </div><br />
+        <br />
+
+
+        <!--<div>
+            <table border='1'>
+                <thead><tr><th>Your Valuable Comments</th></tr></thead>
+                <tbody id="editable"></tbody>
+            </table>
+
+        </div>-->
+    </div>
+</body>
+</html>
