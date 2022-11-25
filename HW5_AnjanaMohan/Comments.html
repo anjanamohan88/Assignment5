@@ -21,7 +21,7 @@
         }
 
         document.getElementById("myForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+           // event.preventDefault();
             getData(event.target);
         });
 
@@ -92,7 +92,7 @@
         </p>
         &nbsp;
         <div>
-            <form method="post" name="myForm" id="myForm" onsubmit="return validateForm(); updateCommentsTable();">
+            <form method="get" name="myForm" id="myForm" onsubmit="return validateForm(); updateCommentsTable();">
 
                 FirstName:<input id="firstName" name="firstName" placeholder="firstname">
                 <div id="fname-err" class="errormsg">

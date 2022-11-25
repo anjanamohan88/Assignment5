@@ -48,16 +48,20 @@ form.addEventListener("submit", function (event) {
 	// stop form submission
 	event.preventDefault();
 	const queryString = window.location.search;
+	//alert(queryString);
 	const urlParams = new URLSearchParams(queryString);
 	const nameCont = urlParams.get('name');
 	const emailCont = urlParams.get('email');
 	const messageCont = urlParams.get('message');
-	alert("your message is"+ messageCont);
+	//alert("your name is" + nameCont);
 	// validate the form
 	let nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
+	//contactussecerr = document.getElementById('contactussec');
+	//contactussecerr.innerHTML = "your name is" + nameCont;
 	let emailValid = validateEmail(form.elements["email"], EMAIL_REQUIRED, EMAIL_INVALID);
 	// if valid, submit the form.
 	if (nameValid && emailValid) {
 		//alert("Demo only. No form was posted.");
 	}
+	//queryString = "";
 });
